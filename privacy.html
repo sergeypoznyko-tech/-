@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Privacy Policy — /</title>
+  <meta name="description" content="Privacy Policy for the / app by Sergey Poznyko. We do not collect, store, or share any personal data." />
+  <style>
+    :root{
+      --bg1:#0b1220;
+      --bg2:#0a1b2e;
+      --card:rgba(255,255,255,.08);
+      --card2:rgba(255,255,255,.06);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.72);
+      --line:rgba(255,255,255,.14);
+      --accent:#7cf7d4;
+      --accent2:#8aa2ff;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius: 22px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 20% 10%, rgba(124,247,212,.22), transparent 55%),
+        radial-gradient(900px 600px at 85% 30%, rgba(138,162,255,.20), transparent 55%),
+        radial-gradient(1100px 700px at 40% 95%, rgba(255,125,200,.14), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      min-height:100svh;
+      overflow-x:hidden;
+    }
+    a{color:inherit}
+    .wrap{
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 28px 18px 60px;
+    }
+    header{
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      padding: 16px 16px 0;
+    }
+    .brand{
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
+    .logo{
+      width:44px;height:44px;
+      border-radius:14px;
+      background: linear-gradient(135deg, rgba(124,247,212,.9), rgba(138,162,255,.9));
+      box-shadow: 0 10px 30px rgba(124,247,212,.18);
+      position:relative;
+      overflow:hidden;
+    }
+    .logo:before{
+      content:"";
+      position:absolute; inset:-40%;
+      background: conic-gradient(from 180deg, rgba(255,255,255,.6), transparent 30%, rgba(255,255,255,.35), transparent 65%, rgba(255,255,255,.6));
+      animation: spin 8s linear infinite;
+      filter: blur(0.2px);
+    }
+    @keyframes spin{ to{ transform: rotate(360deg);} }
+    .title{
+      line-height:1.15;
+    }
+    .title h1{
+      margin:0;
+      font-size: 20px;
+      letter-spacing: .2px;
+    }
+    .title p{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size: 13px;
+    }
+    .pillbar{
+      display:flex; gap:10px; flex-wrap:wrap;
+      padding: 0 16px 16px;
+      margin-top:10px;
+    }
+    .pill{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: var(--muted);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display:flex; gap:8px; align-items:center;
+    }
+    .dot{
+      width:8px;height:8px;border-radius:99px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(124,247,212,.14);
+    }
+    .grid{
+      display:grid;
+      gap:14px;
+      grid-template-columns: 1.2fr .8fr;
+      padding: 0 16px 16px;
+    }
+    @media (max-width: 860px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+    .card{
+      background: linear-gradient(180deg, var(--card), var(--card2));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      position:relative;
+      overflow:hidden;
+    }
+    .card:after{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(600px 120px at 20% 0%, rgba(124,247,212,.16), transparent 55%),
+                  radial-gradient(540px 140px at 90% 10%, rgba(138,162,255,.14), transparent 55%);
+      pointer-events:none;
+    }
+    .card > *{ position:relative; z-index:1; }
+    h2{
+      margin:0 0 10px;
+      font-size: 16px;
+      letter-spacing:.2px;
+    }
+    p{ margin: 10px 0; color: var(--muted); font-size: 14px; line-height:1.55; }
+    ul{
+      margin:10px 0 0;
+      padding:0 0 0 18px;
+      color: var(--muted);
+      font-size:14px;
+      line-height:1.6;
+    }
+    .kvs{
+      display:grid;
+      gap:10px;
+      margin-top:12px;
+    }
+    .kv{
+      border:1px solid var(--line);
+      border-radius: 16px;
+      padding: 12px 12px;
+      background: rgba(255,255,255,.04);
+    }
+    .kv b{ display:block; font-size:12px; color: rgba(255,255,255,.85); letter-spacing:.2px; }
+    .kv span{ display:block; font-family:var(--mono); font-size:12px; color: rgba(255,255,255,.75); margin-top:6px; word-break:break-word; }
+    .cta{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top: 14px;
+    }
+    .btn{
+      text-decoration:none;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      padding: 10px 12px;
+      border-radius: 14px;
+      font-size: 13px;
+      color: rgba(255,255,255,.9);
+      display:inline-flex; align-items:center; gap:10px;
+      transition: transform .15s ease, background .15s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.09); }
+    .badge{
+      font-family:var(--mono);
+      font-size:12px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.18);
+      color: rgba(255,255,255,.8);
+    }
+    footer{
+      padding: 0 16px;
+      margin-top: 14px;
+      color: rgba(255,255,255,.55);
+      font-size: 12px;
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .smalllink{ color: rgba(255,255,255,.72); text-decoration: none; border-bottom: 1px dashed rgba(255,255,255,.28); }
+    .smalllink:hover{ border-bottom-color: rgba(255,255,255,.55); }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div class="title">
+          <h1>Privacy Policy</h1>
+          <p>for <span class="badge">/</span> by Sergey Poznyko</p>
+        </div>
+      </div>
+      <div class="pillbar" aria-label="Quick facts">
+        <div class="pill"><span class="dot"></span> No data collection</div>
+        <div class="pill"><span class="dot" style="background:var(--accent2)"></span> No tracking</div>
+        <div class="pill"><span class="dot" style="background:#ff87d6"></span> No sharing</div>
+      </div>
+    </header>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Summary</h2>
+        <p>
+          The <b>/</b> app does <b>not</b> collect, store, sell, or share any personal data.
+          We designed the app to work without accounts, analytics, advertising identifiers, or third-party SDKs that track you.
+        </p>
+
+        <h2>Data We Collect</h2>
+        <p><b>None.</b> We do not collect:</p>
+        <ul>
+          <li>Personal information (name, email, phone number)</li>
+          <li>Location</li>
+          <li>Identifiers (IDFA/GAID, device ID, IP address for profiling)</li>
+          <li>Usage analytics or telemetry</li>
+          <li>Contacts, photos, files, or microphone recordings</li>
+        </ul>
+
+        <h2>Data Storage</h2>
+        <p>
+          The app does not send data to servers. If the app stores any preferences locally on your device (e.g., settings),
+          they stay on your device and are not transmitted to the developer.
+        </p>
+
+        <h2>Third-Party Services</h2>
+        <p>
+          The app does not integrate third-party analytics, advertising, or tracking services.
+        </p>
+
+        <h2>Children’s Privacy</h2>
+        <p>
+          Since no data is collected, we do not knowingly collect personal information from children or anyone else.
+        </p>
+
+        <h2>Changes</h2>
+        <p>
+          If we ever change this policy, we will update this page with a new effective date.
+        </p>
+
+        <div class="cta">
+          <a class="btn" href="mailto:sergeypoznyko@gmail.com?subject=Privacy%20Policy%20Question%20(%2F)">
+            Contact developer
+          </a>
+          <a class="btn" href="./support.html">Support</a>
+          <a class="btn" href="./marketing.html">Marketing</a>
+        </div>
+      </article>
+
+      <aside class="card">
+        <h2>Developer & App Info</h2>
+        <div class="kvs">
+          <div class="kv">
+            <b>Developer Name</b>
+            <span>Sergey Poznyko</span>
+          </div>
+          <div class="kv">
+            <b>Contact (iCloud / Email)</b>
+            <span>sergeypoznyko@gmail.com</span>
+          </div>
+          <div class="kv">
+            <b>App Name</b>
+            <span>/</span>
+          </div>
+          <div class="kv">
+            <b>Effective Date</b>
+            <span id="effectiveDate">2026-02-27</span>
+          </div>
+        </div>
+
+        <p style="margin-top:14px">
+          This page is intended for App Store reviewers and users to clearly understand how privacy is handled.
+        </p>
+      </aside>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Sergey Poznyko</div>
+      <div>
+        <a class="smalllink" href="mailto:sergeypoznyko@gmail.com?subject=App%20Support%20(%2F)">Support Email</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Keep dates consistent (can be edited manually if needed)
+    const year = new Date().getFullYear();
+    document.getElementById('year').textContent = year;
+  </script>
+</body>
+</html>
