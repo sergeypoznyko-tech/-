@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>/ — Official Landing</title>
+  <meta name="description" content="Official landing page for the / app by Sergey Poznyko. Transparency, roadmap, and contact." />
+  <style>
+    :root{
+      --bg1:#060817;
+      --bg2:#070b1c;
+      --glass: rgba(255,255,255,.08);
+      --glass2: rgba(255,255,255,.05);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.70);
+      --line: rgba(255,255,255,.14);
+      --a:#7cf7d4;
+      --b:#8aa2ff;
+      --c:#ff87d6;
+      --radius: 24px;
+      --shadow: 0 18px 70px rgba(0,0,0,.48);
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 18% 12%, rgba(124,247,212,.22), transparent 55%),
+        radial-gradient(1100px 760px at 88% 18%, rgba(138,162,255,.20), transparent 55%),
+        radial-gradient(1000px 720px at 40% 110%, rgba(255,135,214,.12), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      min-height:100svh;
+      overflow-x:hidden;
+    }
+    a{ color:inherit; }
+    .wrap{ max-width: 1120px; margin:0 auto; padding: 22px 18px 70px; }
+
+    /* Topbar */
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      padding: 10px 6px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:14px;
+    }
+    .icon{
+      width:44px; height:44px; border-radius:16px;
+      background: linear-gradient(135deg, rgba(124,247,212,.95), rgba(138,162,255,.92));
+      box-shadow: 0 14px 42px rgba(124,247,212,.16);
+      position:relative; overflow:hidden;
+    }
+    .icon:before{
+      content:"";
+      position:absolute; inset:-45%;
+      background: conic-gradient(from 90deg, rgba(255,255,255,.55), transparent 28%, rgba(255,255,255,.35), transparent 62%, rgba(255,255,255,.55));
+      animation: spin 9s linear infinite;
+      opacity:.9;
+    }
+    @keyframes spin{ to{ transform: rotate(360deg); } }
+    .brand h1{ margin:0; font-size: 18px; letter-spacing:.2px; }
+    .brand .meta{ margin:6px 0 0; color:var(--muted); font-size: 13px; }
+    .links{
+      display:flex; gap:10px; flex-wrap:wrap;
+    }
+    .btn{
+      text-decoration:none;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      padding: 10px 12px;
+      border-radius: 14px;
+      font-size: 13px;
+      color: rgba(255,255,255,.92);
+      display:inline-flex; align-items:center; gap:10px;
+      transition: transform .15s ease, background .15s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.09); }
+
+    /* Hero */
+    .hero{
+      margin-top: 10px;
+      padding: 22px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, var(--glass), var(--glass2));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero:after{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(700px 180px at 20% 0%, rgba(124,247,212,.16), transparent 60%),
+        radial-gradient(680px 200px at 90% 15%, rgba(138,162,255,.14), transparent 60%),
+        radial-gradient(600px 220px at 40% 120%, rgba(255,135,214,.10), transparent 60%);
+      pointer-events:none;
+    }
+    .hero > *{ position:relative; z-index:1; }
+
+    .headline{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 16px;
+      align-items:start;
+    }
+    @media (max-width: 900px){
+      .headline{ grid-template-columns: 1fr; }
+    }
+    .hero h2{
+      margin:0;
+      font-size: 28px;
+      line-height:1.12;
+      letter-spacing:.2px;
+    }
+    .hero p{
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+    .chips{
+      display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px;
+    }
+    .chip{
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.18);
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: rgba(255,255,255,.76);
+      display:inline-flex; align-items:center; gap:8px;
+    }
+    .chip i{
+      width:8px;height:8px;border-radius:99px; display:inline-block;
+      background: var(--a);
+      box-shadow: 0 0 0 4px rgba(124,247,212,.12);
+    }
+
+    /* Cards */
+    .grid{
+      display:grid;
+      gap: 14px;
+      grid-template-columns: 1fr 1fr 1fr;
+      margin-top: 14px;
+    }
+    @media (max-width: 980px){ .grid{ grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 700px){ .grid{ grid-template-columns: 1fr; } }
+
+    .card{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, var(--glass), var(--glass2));
+      box-shadow: var(--shadow);
+      padding: 16px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      position:relative;
+      overflow:hidden;
+      min-height: 160px;
+    }
+    .card h3{ margin: 0 0 10px; font-size: 15px; letter-spacing:.2px; }
+    .card p{ margin: 10px 0 0; color: var(--muted); font-size: 14px; line-height:1.55; }
+
+    .kvs{
+      display:grid; gap:10px; margin-top: 12px;
+    }
+    .kv{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: 16px;
+      padding: 12px;
+    }
+    .kv b{ display:block; font-size: 12px; color: rgba(255,255,255,.86); }
+    .kv span{ display:block; margin-top: 6px; font-family: var(--mono); font-size: 12px; color: rgba(255,255,255,.74); word-break:break-word; }
+
+    /* Footer */
+    footer{
+      margin-top: 16px;
+      padding: 10px 6px;
+      color: rgba(255,255,255,.55);
+      font-size: 12px;
+      display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    }
+    .smalllink{
+      color: rgba(255,255,255,.72);
+      text-decoration:none;
+      border-bottom: 1px dashed rgba(255,255,255,.28);
+    }
+    .smalllink:hover{ border-bottom-color: rgba(255,255,255,.55); }
+
+    /* Decorative separator */
+    .sep{
+      height:1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+      margin: 14px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <div class="icon" aria-hidden="true"></div>
+        <div>
+          <h1>/</h1>
+          <div class="meta">by Sergey Poznyko</div>
+        </div>
+      </div>
+
+      <div class="links" aria-label="Primary links">
+        <a class="btn" href="./privacy.html">Privacy Policy</a>
+        <a class="btn" href="./support.html">Support</a>
+        <a class="btn" href="mailto:sergeypoznyko@gmail.com?subject=Hello%20from%20Landing%20(%2F)">Contact</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="headline">
+        <div>
+          <h2>A small app built with care — clear, honest, and improving.</h2>
+          <p>
+            I’m a beginner solo developer. I’m working hard to make <b>/</b> useful and reliable.
+            The app is currently <b>free</b> and has <b>no subscriptions</b> or paid features.
+            In the future, I plan to add optional paid functionality to support development and generate income — while keeping a strong focus on user value.
+          </p>
+
+          <div class="chips" aria-label="Highlights">
+            <span class="chip"><i></i> No subscriptions (for now)</span>
+            <span class="chip"><i style="background:var(--b); box-shadow:0 0 0 4px rgba(138,162,255,.12)"></i> Beginner dev, actively improving</span>
+            <span class="chip"><i style="background:var(--c); box-shadow:0 0 0 4px rgba(255,135,214,.10)"></i> Privacy-first approach</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="kvs" role="note" aria-label="Developer transparency">
+            <div class="kv">
+              <b>Developer</b>
+              <span>Sergey Poznyko</span>
+            </div>
+            <div class="kv">
+              <b>Contact (iCloud / Email)</b>
+              <span>sergeypoznyko@gmail.com</span>
+            </div>
+            <div class="kv">
+              <b>App</b>
+              <span>/</span>
+            </div>
+            <div class="kv">
+              <b>Monetization</b>
+              <span>Free now • Optional paid features planned</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sep" aria-hidden="true"></div>
+
+      <div class="links">
+        <a class="btn" href="mailto:sergeypoznyko@gmail.com?subject=Feedback%20(%2F)&body=Hi%20Sergey,%0A%0AHere%20is%20my%20feedback%20about%20the%20app:%0A%0A">
+          Send feedback
+        </a>
+        <a class="btn" href="./support.html">Get support</a>
+        <a class="btn" href="./privacy.html">Read privacy policy</a>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="Landing sections">
+      <article class="card">
+        <h3>Value & Intent</h3>
+        <p>
+          My goal is to build something that genuinely helps users. I’m focusing on usability, stability, and clear communication.
+          Every update aims to add real improvements, not noise.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Pricing (Current)</h3>
+        <p>
+          The app currently has <b>no paid features</b> and <b>no subscriptions</b>.
+          You can use it without hidden costs.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Future Monetization (Planned)</h3>
+        <p>
+          To support long-term development, I plan to introduce optional paid functionality later (e.g., advanced features).
+          If introduced, it will be clearly explained and remain optional.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Privacy</h3>
+        <p>
+          Privacy is important: the app is designed with a minimal data approach.
+          The current policy: <b>no data is collected, stored, or shared</b>.
+        </p>
+        <p style="margin-top:10px">
+          <a class="smalllink" href="./privacy.html">Privacy Policy</a>
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Support</h3>
+        <p>
+          If something doesn’t work or you have suggestions — email me.
+          I use feedback to prioritize fixes and improvements.
+        </p>
+        <p style="margin-top:10px">
+          <a class="smalllink" href="mailto:sergeypoznyko@gmail.com?subject=Support%20(%2F)">sergeypoznyko@gmail.com</a>
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Roadmap (High-Level)</h3>
+        <p>
+          • Improve UX & stability<br>
+          • Add features based on user requests<br>
+          • Later: optional paid features to support development
+        </p>
+      </article>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Sergey Poznyko</div>
+      <div>
+        <a class="smalllink" href="./support.html">Support</a>
+        &nbsp;•&nbsp;
+        <a class="smalllink" href="./privacy.html">Privacy</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
