@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Support — /</title>
+  <meta name="description" content="Support page for the / app by Sergey Poznyko. Contact, FAQ, and troubleshooting." />
+  <style>
+    :root{
+      --bg:#070b14;
+      --panel:rgba(255,255,255,.07);
+      --panel2:rgba(255,255,255,.05);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.70);
+      --line:rgba(255,255,255,.14);
+      --a:#7cf7d4;
+      --b:#8aa2ff;
+      --c:#ff87d6;
+      --radius:22px;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text);
+      background:
+        radial-gradient(900px 550px at 15% 10%, rgba(124,247,212,.20), transparent 55%),
+        radial-gradient(800px 520px at 90% 22%, rgba(138,162,255,.18), transparent 55%),
+        radial-gradient(900px 560px at 45% 100%, rgba(255,135,214,.12), transparent 55%),
+        linear-gradient(180deg, #050711, var(--bg));
+      min-height:100svh;
+    }
+    .wrap{ max-width: 1040px; margin:0 auto; padding: 26px 18px 60px; }
+    .top{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:14px; flex-wrap:wrap;
+      padding: 10px 10px 0;
+    }
+    .hero{
+      padding: 10px;
+      display:flex; align-items:center; gap:14px;
+    }
+    .mark{
+      width:46px;height:46px;border-radius:16px;
+      background: conic-gradient(from 220deg, var(--a), var(--b), var(--c), var(--a));
+      box-shadow: 0 14px 40px rgba(124,247,212,.16);
+      position:relative; overflow:hidden;
+    }
+    .mark:after{
+      content:"";
+      position:absolute; inset:-40%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.55), transparent 55%);
+      transform: rotate(25deg);
+      opacity:.65;
+    }
+    h1{ margin:0; font-size: 20px; letter-spacing:.2px; }
+    .sub{ margin:6px 0 0; color:var(--muted); font-size: 13px; }
+    .nav{
+      display:flex; gap:10px; flex-wrap:wrap;
+      padding: 10px;
+    }
+    .nav a{
+      text-decoration:none;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      padding: 10px 12px;
+      border-radius: 14px;
+      font-size: 13px;
+      color: rgba(255,255,255,.9);
+      transition: transform .15s ease, background .15s ease;
+    }
+    .nav a:hover{ transform: translateY(-1px); background: rgba(255,255,255,.09); }
+
+    .grid{
+      display:grid; gap:14px;
+      grid-template-columns: 1fr 1fr;
+      padding: 10px;
+      margin-top: 8px;
+    }
+    @media (max-width: 900px){ .grid{ grid-template-columns: 1fr; } }
+
+    .card{
+      background: linear-gradient(180deg, var(--panel), var(--panel2));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    h2{ margin:0 0 10px; font-size: 16px; }
+    p{ margin:10px 0; color:var(--muted); font-size:14px; line-height:1.55; }
+    .info{
+      display:grid; gap:10px; margin-top:12px;
+    }
+    .row{
+      border:1px solid var(--line);
+      border-radius: 16px;
+      padding: 12px;
+      background: rgba(255,255,255,.04);
+    }
+    .row b{ display:block; font-size:12px; color: rgba(255,255,255,.86); }
+    .row span{ display:block; margin-top:6px; color: rgba(255,255,255,.72); font-family: var(--mono); font-size: 12px; word-break:break-word; }
+    details{
+      border:1px solid var(--line);
+      border-radius: 16px;
+      padding: 12px;
+      background: rgba(255,255,255,.04);
+      margin-top:10px;
+    }
+    summary{
+      cursor:pointer;
+      color: rgba(255,255,255,.88);
+      font-size:14px;
+      list-style:none;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    .hint{
+      display:inline-flex; gap:8px; align-items:center;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.18);
+      font-size: 12px;
+      color: rgba(255,255,255,.70);
+      margin-left: 8px;
+    }
+    .dot{ width:8px;height:8px;border-radius:99px;background: var(--a); box-shadow: 0 0 0 4px rgba(124,247,212,.12); }
+    footer{
+      padding: 10px;
+      margin-top: 14px;
+      color: rgba(255,255,255,.55);
+      font-size: 12px;
+      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
+    }
+    .mailto{
+      display:inline-flex; align-items:center; gap:10px;
+      text-decoration:none;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      padding: 10px 12px;
+      border-radius: 14px;
+      font-size: 13px;
+      color: rgba(255,255,255,.9);
+    }
+    .mailto:hover{ background: rgba(255,255,255,.09); }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div class="hero">
+        <div class="mark" aria-hidden="true"></div>
+        <div>
+          <h1>Support</h1>
+          <div class="sub">for <b>/</b> — Developer: Sergey Poznyko</div>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Site navigation">
+        <a href="./marketing.html">Marketing</a>
+        <a href="./privacy.html">Privacy Policy</a>
+        <a href="mailto:sergeypoznyko@gmail.com?subject=Support%20Request%20(%2F)">Email Support</a>
+      </nav>
+    </div>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Contact</h2>
+        <p>
+          If you need help, the fastest way is email. Please include your iOS version and a short description of what happened.
+        </p>
+
+        <div class="info">
+          <div class="row">
+            <b>Support Email (iCloud)</b>
+            <span>sergeypoznyko@gmail.com</span>
+          </div>
+          <div class="row">
+            <b>Developer</b>
+            <span>Sergey Poznyko</span>
+          </div>
+          <div class="row">
+            <b>App</b>
+            <span>/</span>
+          </div>
+        </div>
+
+        <p style="margin-top:14px">
+          <a class="mailto" href="mailto:sergeypoznyko@gmail.com?subject=Support%20Request%20(%2F)&body=Hi%20Sergey,%0A%0ADevice:%20(iPhone%20model)%0AiOS%20version:%20%0AApp%20version:%20%0A%0AProblem:%20%0ASteps%20to%20reproduce:%20%0AExpected%20result:%20%0AActual%20result:%20%0A%0AThank%20you!">
+            Open email template
+          </a>
+        </p>
+      </article>
+
+      <aside class="card">
+        <h2>FAQ & Troubleshooting</h2>
+
+        <details open>
+          <summary>Does the app collect any data?
+            <span class="hint"><span class="dot"></span>No</span>
+          </summary>
+          <p>We do not collect, store, or share personal data. See the Privacy Policy page for details.</p>
+        </details>
+
+        <details>
+          <summary>The app behaves unexpectedly. What should I do?</summary>
+          <p>
+            Try these steps:
+            <br>1) Close the app and reopen
+            <br>2) Restart the device
+            <br>3) Make sure iOS is up to date
+            <br>4) Reinstall the app (if needed)
+          </p>
+        </details>
+
+        <details>
+          <summary>I found a bug. How can I report it?</summary>
+          <p>
+            Email support with:
+            <br>• iPhone/iPad model
+            <br>• iOS version
+            <br>• Steps to reproduce
+            <br>• Screenshots (optional)
+          </p>
+        </details>
+
+        <details>
+          <summary>Feature request / feedback</summary>
+          <p>
+            I’m actively improving the app. Send suggestions — I read everything and prioritize useful, high-impact improvements.
+          </p>
+        </details>
+      </aside>
+
+      <article class="card">
+        <h2>Transparency Notes (for reviewers)</h2>
+        <p>
+          This support page exists to provide a clear contact channel, troubleshooting info, and transparent developer details.
+          The app currently has no subscriptions or paid features.
+        </p>
+        <p style="margin-bottom:0">
+          For privacy details, please refer to the Privacy Policy page.
+        </p>
+      </article>
+
+      <aside class="card">
+        <h2>Status & Updates</h2>
+        <p>
+          I’m a solo beginner developer and I’m continuously working on improvements. If you encounter an issue, please email me —
+          I respond as quickly as possible.
+        </p>
+        <div class="row" style="margin-top:12px">
+          <b>Preferred support channel</b>
+          <span>Email: sergeypoznyko@gmail.com</span>
+        </div>
+      </aside>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Sergey Poznyko</div>
+      <div>Made for clarity: users + App Review</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
